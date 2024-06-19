@@ -1,0 +1,14 @@
+-----------------------------Docker-----------------------------
+
+1. Docker File
+	-> converts our appliation to a 'Image'
+	
+2. Image	
+	-> a lightweight, standalone, and executable package that includes everything needed to run a piece of software, including the code, runtime, libraries, environment variables, and configuration files
+	-> image can be started using a container
+	-> Docker images act as a set of instructions to build a Docker cotainer.
+	-> immutable and portable
+	
+3. Container
+	-> an isolated environment where an application runs 
+	-> lightweight, portable, and self-contained - they include everything needed to run the application, including the code, runtime, system tools, and libraries
