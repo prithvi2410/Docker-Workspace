@@ -1,14 +1,48 @@
 -----------------------------Docker-----------------------------
 
+
+-----------------------------Docker Fundamentals-----------------------------
 1. Docker File
 	-> converts our appliation to a 'Image'
 	
-2. Image	
+2. Image (not running / not started)
 	-> a lightweight, standalone, and executable package that includes everything needed to run a piece of software, including the code, runtime, libraries, environment variables, and configuration files
 	-> image can be started using a container
 	-> Docker images act as a set of instructions to build a Docker cotainer.
 	-> immutable and portable
 	
-3. Container
+3. Container (running / started)
 	-> an isolated environment where an application runs 
 	-> lightweight, portable, and self-contained - they include everything needed to run the application, including the code, runtime, system tools, and libraries
+	-> it is a collection / layers images.
+	-> each image in the container is a dependency to the application.
+	-> the base image will be OS image/linux-alpine(low size MB) based image.
+	
+4. How Docker Runs in an OS
+	->  Every Os is made of 2 layers	
+		-> Kernel layer - intract with hardware
+		-> Application layer -UI
+	-> so the docker virtualizes the appliation layer alone by using the host kernel
+	-> here is where it differs from VM : each VM has individual kernel
+	-> due to that its small in size, start and runs fasst, more compaitable
+	
+	
+-----------------------------Docker Basic Commands-----------------------------
+1.  docker image ls 										: 	list down all the images in the local machine
+2.  docker run 'image name'  								: 	starts the container for the image in attached mode ( container stops when the terminal is closed)
+3.  docker run -d 'image name'  							: 	starts the container for the image in dettached mode ( must be stoped seperatly with the container id)
+4.  docker run --name 'custom container name' 'image name'	: 	starts the container and give the custom name to the container
+5.  docker ps												:   list down all the running containers in the local machine
+6.  docker ps -a 											:   list down all the running and stopped containers in the local machine
+7.  docker pull 'image name'     							:   pulls a specified image from docker hub( docker run internally does this if the image is not found in local machine)
+8.  docker stop 'container id'								: 	stops the specified container
+9.  docker start 'container id'								: 	starts the specified container
+10. docker run -p'host port':'container port'				:	you can allocate a custom port for the container( incase if two versions of same image is running this can be used)
+
+Note : Docker run and Docker start are not same! run creates a container from image and then it starts the container where as the start is to restart the contianer
+
+-----------------------------Docker Logs Commands-----------------------------
+1. docker logs 'container id' or docker logs 'container name' 	: shows the logs for the containers
+2. docker exec -it 'container id' : opens the interactice terminal for the container.
+
+-----------------------------Docker Network-----------------------------
