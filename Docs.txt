@@ -37,12 +37,25 @@
 7.  docker pull 'image name'     							:   pulls a specified image from docker hub( docker run internally does this if the image is not found in local machine)
 8.  docker stop 'container id'								: 	stops the specified container
 9.  docker start 'container id'								: 	starts the specified container
-10. docker run -p'host port':'container port'				:	you can allocate a custom port for the container( incase if two versions of same image is running this can be used)
+10. docker run -p 'host port':'container port'				:	you can allocate a custom port for the container( incase if two versions of same image is running this can be used)
 
 Note : Docker run and Docker start are not same! run creates a container from image and then it starts the container where as the start is to restart the contianer
+Quick tip : use of - (single dash) is for  single-letter options like (-p,-d) and -- (double dash)  longer options like (--help,--name)
 
 -----------------------------Docker Logs Commands-----------------------------
 1. docker logs 'container id' or docker logs 'container name' 	: shows the logs for the containers
 2. docker exec -it 'container id' : opens the interactice terminal for the container.
 
 -----------------------------Docker Network-----------------------------
+1. docker network ls										: List all the docker networks available
+2. docker network create 'netwrok name'						: create a new docket network
+
+-----------------------------Docker Compose-----------------------------
+	- It lets us to automate all the docker commands so that it can be triggered automatically
+	-  it is a YAML file
+-----------------------------Docker File-----------------------------
+	- A blueprint / set of instructions to create a docker image
+	- The base command will always be 'FROM image_name'
+	- next 'RUN mkdir -p /location '  - this creates a folder inside the image
+	- next is 'COPY . /location' - this copies all from the current folder in the host(.) to the /location inside the image
+	- atlast 'CMD required_commands'
